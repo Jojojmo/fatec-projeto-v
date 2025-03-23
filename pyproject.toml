@@ -1,0 +1,26 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Jojojmo",email = "jmo.nick@outlook.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "ollama (>=0.4.7,<0.5.0)",
+    "rich (>=13.9.4,<14.0.0)",
+    "fastapi (>=0.115.11,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "faiss-cpu (>=1.10.0,<2.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "taskipy (>=1.14.1,<2.0.0)"
+]
+
+[tool.taskipy.tasks]
+runserver = "uvicorn app.backend.app:app --host 0.0.0.0 --port 8000 --reload"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
