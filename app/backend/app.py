@@ -1,8 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI 
 from app.backend.Schemas import Message
+from app.backend.routers import Users
 from app.llm.Call_llm import make_guess
 
 app = FastAPI()
+
+app.include_router(Users.router)
 
 @app.post("/hello", response_model=Message)
 def hello(prompt: str):
